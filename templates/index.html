@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ChatBot Web App</title>
+</head>
+<body>
+    <h1>ChatBot Web App</h1>
+        
+    <form action="{{ url_for('get_response') }}" method="post" enctype="multipart/form-data">
+        <label for="user_input">User Input:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if user_input %}
+        <p><strong>User Input:</strong> {{ user_input }}</p>
+    {% endif %}
+
+    {% if rag_output %}
+        <p><strong>RAG Output:</strong> {{ rag_output }}</p>
+    {% endif %}
+</body>
+</html>
